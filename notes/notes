@@ -1,0 +1,12 @@
+FrameWork
+POM_PF(Martin Flower)
+
+Page--for every page need to create seprate page Java Class
+    --never use assertion
+    --Page action should provide page behavoiur
+    -- By locator should private and accessble via public methods
+Test:
+    -- have to use TestNg/jUnit
+    --never use driver API
+    --Assertion should be use in the test classes 
+    -- 

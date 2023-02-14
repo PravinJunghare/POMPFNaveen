@@ -31,7 +31,7 @@ public class LoginPage {
 
 	// 4th: Page Actions
 
-	@Step("Getting Login Page Tttle")
+	@Step("Getting Login Page Tttle value")
 	public String getLoginPageTitle() {
 		// return driver.getTitle();
 		return elemtutil.waitforTitletobebepresent(Constants.LOGIN_PAGE_TITLE, Constants.DEFAULT_TIME_OUT);

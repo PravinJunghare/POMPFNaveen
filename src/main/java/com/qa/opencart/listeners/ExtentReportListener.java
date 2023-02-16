@@ -26,7 +26,6 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 	private static ExtentReports extent = init();
 	public static ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
 	private static ExtentReports extentReports;
-	
 
 	private static ExtentReports init() {
 
@@ -40,7 +39,7 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 				e.printStackTrace();
 			}
 		}
-		
+
 		extentReports = new ExtentReports();
 		ExtentSparkReporter reporter = new ExtentSparkReporter(OUTPUT_FOLDER + FILE_NAME);
 		reporter.config().setReportName("Automation Test Results");
@@ -51,13 +50,12 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 		extentReports.setSystemInfo("Team", "Ecomm");
 		extentReports.setSystemInfo("ENV NAME", System.getProperty("env"));
 
-
 		return extentReports;
 	}
 
 	public synchronized void onStart(ITestContext context) {
 		System.out.println("Test Suite started!");
-		
+
 	}
 
 	public synchronized void onFinish(ITestContext context) {
@@ -90,8 +88,9 @@ public class ExtentReportListener extends DriverFactory implements ITestListener
 	public synchronized void onTestSuccess(ITestResult result) {
 		System.out.println((result.getMethod().getMethodName() + " passed!"));
 		test.get().pass("Test passed");
-		//test.get().pass(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(getScreenShot()).build());
-		// for passed test cases 
+		// test.get().pass(result.getThrowable(),
+		// MediaEntityBuilder.createScreenCaptureFromPath(getScreenShot()).build());
+		// for passed test cases
 		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 	}
 

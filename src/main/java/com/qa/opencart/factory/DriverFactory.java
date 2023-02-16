@@ -112,20 +112,22 @@ public class DriverFactory {
 		prop.load(fip);
 		return prop;
 	}
-	
+
 	/*
 	 * take ScreenShot
 	 */
-	
+
 	public String getScreenShot() {
-		File source=((TakesScreenshot )getDriver()).getScreenshotAs(OutputType.FILE);
+		File source = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 		// here we are coverting getDriver() becase mutiple thread are runnning
-		String path=System.clearProperty("user dir")+"/screenshots/"+System.currentTimeMillis()+".png";
-		// here we are giving path to store scrrenshot 
-		// System.clearProperty("user dir")+"/screenshot will create folder in curren project
-		//+System.currentTimeMillis()+".png"; this will give the name on base of current time
-		
-		File destination= new File(path);
+		String path = System.clearProperty("user dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+		// here we are giving path to store scrrenshot
+		// System.clearProperty("user dir")+"/screenshot will create folder in curren
+		// project
+		// +System.currentTimeMillis()+".png"; this will give the name on base of
+		// current time
+
+		File destination = new File(path);
 		// move file
 		try {
 			FileUtils.copyFile(source, destination);
@@ -136,7 +138,4 @@ public class DriverFactory {
 		return path;
 	}
 
-	
-	
-	
 }
